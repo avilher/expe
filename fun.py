@@ -3,11 +3,11 @@ import os
 import string
 import csv
 class Expe():
-    def __init__(self, mainfolder, condiciones, n_lin, n_col):
+    def __init__(self, mainfolder, conditions, row, col):
         self.mainfolder = mainfolder
-        self.condiciones = condiciones
-        self.n_lin = n_lin
-        self.n_col = n_col
+        self.conditions = conditions
+        self.row = row
+        self.col = col
 
     def get_items(self):
         ff=os.listdir(self.mainfolder)
@@ -16,7 +16,7 @@ class Expe():
         for g in ff:
             try:
                 s=os.listdir(self.mainfolder+g)
-                for i in self.condiciones:
+                for i in self.conditions:
                     for n in s:
                         
                         nn=string.split(n,'_')
@@ -52,8 +52,8 @@ class Expe():
                                 
                             f=open(self.mainfolder+g+"/"+n,"rb")
                             c=f.readlines()
-                            cc=string.split(c[self.n_col])
-                            ccc=cc[self.n_lin]
+                            cc=string.split(c[self.col])
+                            ccc=cc[self.row]
                             suj.append(ccc)
     				
     
